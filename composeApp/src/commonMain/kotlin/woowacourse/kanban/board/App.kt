@@ -2,20 +2,30 @@ package woowacourse.kanban.board
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -24,6 +34,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.font.FontStyle
@@ -45,6 +56,8 @@ fun App() {
         verticalArrangement = Arrangement.spacedBy(5.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
+//        MessageList(messages = listOf("Hello", "World", "Jetpack", "Compose"))
+        CircularIconExample()
         CheckerScreen()
         TextExample()
         ImageExample()
@@ -232,6 +245,59 @@ fun ComplexBox() {
                 .size(50.dp)
                 .background(Color.Green)
                 .align(Alignment.BottomEnd),
+        )
+    }
+}
+
+// LazyColumn 실전 예시
+@Composable
+fun MessageList(messages: List<String>) {
+    LazyColumn(
+        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp), // 항목 간 간격 설정
+    ) {
+        // 단일 헤더 항목
+        item {
+            Text(text = "메시지 목록", style = MaterialTheme.typography.headlineMedium)
+        }
+
+        // 리스트 기반 동적 항목
+        items(messages) { message ->
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+            ) {
+                Text(
+                    text = message,
+                    modifier = Modifier.padding(16.dp),
+                )
+            }
+        }
+    }
+}
+
+
+@Composable
+fun CircularIconExample() {
+    // 1. 원형으로 자를 기준이 되는 부모 컨테이너
+    Box(
+        modifier = Modifier
+            .size(100.dp) // 최종적으로 화면에 보여질 원의 크기
+            .clip(CircleShape) // 내부 요소를 원형으로 자름
+            .background(Color.White)
+            .border(width = 10.dp, color = Color.Gray, shape = CircleShape) // 두꺼운 테두리 적용, // 아이콘의 뚫린 실루엣을 통해 보여질 색상(흰색)
+//        contentAlignment = Alignment.Center,
+    ) {
+        // 2. 사각형 테두리를 숨기기 위해 확장된 AccountBox
+        Icon(
+            imageVector = Icons.Default.AccountBox,
+            contentDescription = "Profile",
+            tint = Color.Gray, // 배경이 될 원의 색상(회색)
+            modifier = Modifier
+                .requiredSize(135.dp)
+//                .border(width = 30.dp, color = Color.Red), // 부모(100.dp)의 제약을 무시하고 크기를 강제로 키움
+
+
         )
     }
 }
