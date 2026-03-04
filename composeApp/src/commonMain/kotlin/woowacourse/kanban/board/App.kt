@@ -1,10 +1,13 @@
 package woowacourse.kanban.board
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -38,10 +41,8 @@ fun App() {
 
 
     Column(
-        modifier = Modifier.fillMaxSize().padding(16.dp),
-        // 1. 세로 배치: 자식들 사이에 20.dp 간격을 띄운다.
-        verticalArrangement = Arrangement.spacedBy(20.dp),
-        // 2. 가로 정렬: 모든 요소를 가로 중앙으로 모은다.
+        modifier = Modifier.fillMaxSize().padding(4.dp),
+        verticalArrangement = Arrangement.spacedBy(5.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         CheckerScreen()
@@ -52,6 +53,8 @@ fun App() {
         HeartImageButton()
         StyledSaveButton()
         StyledHeartButton()
+        SimpleBox()
+        ComplexBox()
     }
 }
 
@@ -176,6 +179,59 @@ fun StyledHeartButton() {
         Text(
             text = if (isLiked) "좋아요 취소" else "좋아요",
             modifier = Modifier.padding(start = 8.dp),
+        )
+    }
+}
+
+@Composable
+fun SimpleBox() {
+    Box(
+        modifier = Modifier.size(120.dp),
+    ) {
+        // 파란색 사각형, 왼쪽 위에 배치
+        Box(
+            modifier = Modifier
+                .size(100.dp)
+                .background(Color.Blue)
+                .align(Alignment.TopStart),
+        )
+
+        // 초록색 사각형, 오른쪽 아래에 배치
+        Box(
+            modifier = Modifier
+                .size(100.dp)
+                .background(Color.Green)
+                .align(Alignment.BottomEnd),
+        )
+    }
+}
+
+
+@Composable
+fun ComplexBox() {
+    Box(
+        modifier = Modifier.requiredSize(200.dp).background(Color.White),
+    ) {
+        Box(
+            modifier = Modifier
+                .size(50.dp)
+                .background(Color.Red)
+                .align(Alignment.TopStart),
+        )
+
+        // 초록색 사각형, 오른쪽 아래에 배치
+        Box(
+            modifier = Modifier
+                .size(50.dp)
+                .background(Color.Yellow)
+                .align(Alignment.Center),
+        )
+
+        Box(
+            modifier = Modifier
+                .size(50.dp)
+                .background(Color.Green)
+                .align(Alignment.BottomEnd),
         )
     }
 }
