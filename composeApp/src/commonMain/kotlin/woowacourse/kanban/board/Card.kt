@@ -30,7 +30,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-
 @Composable
 fun Card(title: String = "제목없음", content: String = "", chips: List<String> = emptyList(), user: String = "알수없음") {
     Column(
@@ -92,7 +91,7 @@ fun Chip(content: String) {
         modifier = Modifier.clip(shape = RoundedCornerShape(100.dp)).background(Color(0xffF3F4F6))
             .padding(horizontal = 8.dp, vertical = 4.dp),
 
-        )
+    )
 }
 
 @Composable

@@ -34,7 +34,7 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
 
-            //마테리얼 아이콘
+            // 마테리얼 아이콘
             implementation(libs.material.icons.extended)
         }
         commonTest.dependencies {
@@ -72,7 +72,7 @@ ktlint {
         exclude { element ->
             val path = element.file.path
             path.contains("/build/") ||
-                    (!path.contains("/src/commonMain/") && !path.contains("/src/commonTest/"))
+                (!path.contains("/src/commonMain/") && !path.contains("/src/commonTest/"))
         }
     }
 }
