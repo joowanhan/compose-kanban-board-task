@@ -58,7 +58,7 @@ fun App() {
     ) {
 //        MessageList(messages = listOf("Hello", "World", "Jetpack", "Compose"))
         CircularIconExample()
-        CheckerScreen()
+//        CheckerScreen()
         TextExample()
         ImageExample()
         IconExample()
