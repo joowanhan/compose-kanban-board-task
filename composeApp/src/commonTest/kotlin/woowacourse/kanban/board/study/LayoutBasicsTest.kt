@@ -24,7 +24,7 @@ import androidx.compose.ui.test.runComposeUiTest
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import kotlin.test.Test
+import org.junit.Test
 
 // 1. 모든 테스트가 성공하도록 만들어보자
 // 2. 힌트를 참고하여 Preview를 노출시킨다.
@@ -63,6 +63,7 @@ class LayoutBasicsTest {
                 Text(text = "깜포즈", color = Color.Red)
                 Text(text = "킴포즈", color = Color.Yellow)
                 Text(text = "끔포즈", color = Color.Green)
+
             }
         }
 
@@ -81,6 +82,7 @@ class LayoutBasicsTest {
             var enabled by remember { mutableStateOf(true) }
             Button(
                 onClick = {
+                    // 바꿔 보세요!
                     enabled = !enabled
                 },
                 enabled = enabled,
