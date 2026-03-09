@@ -35,11 +35,11 @@ UI 테스트 추가
         - 다른 개발자가 이 함수명만 보고 "칸반 카드의 본문 텍스트"라는 것을 바로 알수 있게 함
         - content -> cardDescription
         - Content -> CardDescription
+    - [x] Divider 컴포넌트 사용
+        - box로 구현되어 있던 것을 구분선에 대한 컴포넌트를 활용
     - [ ] PreviewParameter 활용
         - 다양한 상황(제목만, 칩만, 긴 텍스트 등)을 한 번에 확인할 수 있게 함
         - IDE에서 Preview가 잘 안보일 것
-    - [ ] Divider 컴포넌트 사용
-        - box로 구현되어 있던 것을 구분선에 대한 컴포넌트를 활용
 - [ ] 비즈니스 로직과 UI 로직을 분리
     - [ ]
 - [ ] 테스트 코드 추가
