@@ -31,12 +31,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
+@Preview(showBackground = true, backgroundColor = 0xFFFF0000)
 fun Card(title: String = "제목없음", content: String = "", chips: List<String> = emptyList(), user: String = "알수없음") {
     Column(
         modifier = Modifier
             .clip(shape = RoundedCornerShape(10.dp))
             .background(Color.White)
-            .border(width = 1.dp, shape = RoundedCornerShape(10.dp), color = Color(0xffe5e7eb))
+            .border(width = 3.dp, shape = RoundedCornerShape(10.dp), color = Color(0xffe5e7eb))
             .padding(17.dp, 17.dp, 17.dp, 1.dp)
             .width(286.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
@@ -130,7 +131,7 @@ fun User(name: String) {
 }
 
 @Composable
-@Preview
+@Preview(showBackground = true, backgroundColor = 0xFFFF0000)
 fun CardPreview() {
     Column(
         verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -146,21 +147,21 @@ fun CardPreview() {
             chips = listOf("컴포넌트", "성능"),
             user = "다이노",
         )
-        Card(
-            title = "LazyColumn 컴포넌트 구현",
-            content = "세로 스크롤 가능한 리스트 컴포넌트를 만들고 성능 최적화를 적용합니다.",
-            user = "다이노",
-        )
-        Card(
-            title = "LazyColumn 컴포넌트 구현",
-            user = "다이노",
-        )
-
-        Card(
-            title = "LazyColumn 컴포넌트 구현",
-            content = "너무너무너무 긴 설명은 두 줄까지만 노출하고 말줄임표로 처리합니다 두 줄까지만 노출하고 말줄임표로 처리합니다",
-            chips = listOf("너무너무", "긴 태그", "최대로", "5자까지", "5개제한임"),
-            user = "너무너무너무 긴 담당자도 한 줄 너무너무너무 긴 담당자도 한 줄",
-        )
+//        Card(
+//            title = "LazyColumn 컴포넌트 구현",
+//            content = "세로 스크롤 가능한 리스트 컴포넌트를 만들고 성능 최적화를 적용합니다.",
+//            user = "다이노",
+//        )
+//        Card(
+//            title = "LazyColumn 컴포넌트 구현",
+//            user = "다이노",
+//        )
+//
+//        Card(
+//            title = "LazyColumn 컴포넌트 구현",
+//            content = "너무너무너무 긴 설명은 두 줄까지만 노출하고 말줄임표로 처리합니다 두 줄까지만 노출하고 말줄임표로 처리합니다",
+//            chips = listOf("너무너무", "긴 태그", "최대로", "5자까지", "5개제한임"),
+//            user = "너무너무너무 긴 담당자도 한 줄 너무너무너무 긴 담당자도 한 줄",
+//        )
     }
 }
