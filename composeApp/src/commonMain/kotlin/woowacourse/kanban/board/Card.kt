@@ -34,6 +34,7 @@ import androidx.compose.ui.unit.sp
 fun Card(title: String = "제목없음", content: String = "", chips: List<String> = emptyList(), user: String = "알수없음") {
     Column(
         modifier = Modifier
+            .width(286.dp)
             .clip(shape = RoundedCornerShape(10.dp))
             .background(Color.White)
             .border(width = 1.dp, shape = RoundedCornerShape(10.dp), color = Color(0xffe5e7eb))
