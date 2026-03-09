@@ -8,7 +8,7 @@ UI 테스트 추가
 
 ## 기능 요구 사항
 
-- [ ] 1단계 피드백 반영
+- [x] 1단계 피드백 반영
     - [x] Modifier
         - [x] Modifier 주입
             - 컴포저블 함수가 외부로부터 Modifier 객체를 매개변수로 전달받아 내부의 최상위(Root) 레이아웃에 적용하는 설계 패턴 적용
@@ -28,18 +28,19 @@ UI 테스트 추가
                 - UI 컴포넌트를 설계할 때는 항상 **"전체 구조와 제약을 먼저 설정하고, 세부적인 내부 여백과 스타일을 나중에 깎아나간다"**는 규칙을 따라야 함
         - [x] Named arguments 활용
             - 패딩 값에 positional argument가 사용된 것 등을 리팩토링
-    - [ ] 가시성 제한
+    - [x] 가시성 제한
         - [x] 캡슐화를 위해 내부 컴포저블 private
-        - [ ] Preview 함수는 실제 프로덕션 코드에서 호출되지 않으므로 private
+        - [x] Preview 함수는 실제 프로덕션 코드에서 호출되지 않으므로 private
     - [x] 명명 규칙
         - 다른 개발자가 이 함수명만 보고 "칸반 카드의 본문 텍스트"라는 것을 바로 알수 있게 함
         - content -> cardDescription
         - Content -> CardDescription
     - [x] Divider 컴포넌트 사용
         - box로 구현되어 있던 것을 구분선에 대한 컴포넌트를 활용
-    - [ ] PreviewParameter 활용
+    - [x] PreviewParameter 활용
         - 다양한 상황(제목만, 칩만, 긴 텍스트 등)을 한 번에 확인할 수 있게 함
-        - IDE에서 Preview가 잘 안보일 것
+        - showBackground를 통해 IDE 시인성 개선
+        - CardPreviewData, CardPreviewProvider: 모듈 외부로 불필요하게 노출되는 것을 막기 위해 internal 사용
 - [ ] 비즈니스 로직과 UI 로직을 분리
     - [ ]
 - [ ] 테스트 코드 추가
