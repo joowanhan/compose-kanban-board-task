@@ -30,15 +30,10 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import woowacourse.kanban.board.domain.Task
 
 @Composable
-fun Card(
-    modifier: Modifier = Modifier,
-    title: String = "제목없음",
-    cardDescription: String = "",
-    chips: List<String> = emptyList(),
-    user: String = "알수없음",
-) {
+fun Card(task: Task, modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
             .width(286.dp)
@@ -48,19 +43,19 @@ fun Card(
             .padding(start = 17.dp, top = 17.dp, end = 17.dp, bottom = 1.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
-        Title(title)
-        if (cardDescription.isNotBlank()) CardDescription(cardDescription)
-        if (chips.isNotEmpty()) {
+        Title(task.title)
+        if (task.cardDescription.isNotBlank()) CardDescription(task.cardDescription)
+        if (task.chips.isNotEmpty()) {
             FlowRow(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalArrangement = Arrangement.spacedBy(4.dp),
             ) {
-                chips.take(5).forEach { chip ->
+                task.chips.forEach { chip ->
                     Chip(chip)
                 }
             }
         }
-        User(name = user)
+        User(name = task.user)
     }
 }
 
@@ -140,48 +135,37 @@ private fun User(name: String, modifier: Modifier = Modifier) {
     }
 }
 
-// PreviewParameter를 위한 데이터 클래스
-internal data class CardPreviewData(
-    val title: String,
-    val cardDescription: String = "",
-    val chips: List<String> = emptyList(),
-    val user: String,
-)
-
-internal class CardPreviewProvider : PreviewParameterProvider<CardPreviewData> {
+internal class CardPreviewProvider : PreviewParameterProvider<Task> {
     override val values = sequenceOf(
-        CardPreviewData(
+        Task(
             title = "LazyColumn 컴포넌트 구현",
             cardDescription = "세로 스크롤 가능한 리스트 컴포넌트를 만들고 성능 최적화를 적용합니다.",
             chips = listOf("컴포넌트", "성능"),
             user = "다이노",
         ),
-        CardPreviewData(
+        Task(
             title = "LazyColumn 컴포넌트 구현",
             chips = listOf("컴포넌트", "성능"),
             user = "다이노",
         ),
-        CardPreviewData(
+        Task(
             title = "LazyColumn 컴포넌트 구현",
             user = "다이노",
         ),
-        CardPreviewData(
+        Task(
             title = "LazyColumn 컴포넌트 구현",
             cardDescription = "너무너무너무 긴 설명은 두 줄까지만 노출하고 말줄임표로 처리합니다 두 줄까지만 노출하고 말줄임표로 처리합니다",
-            chips = listOf("너무너무", "긴 태그", "최대로", "5자까지", "5개제한임"),
-            user = "너무너무너무 긴 담당자도 한 줄 너무너무너무 긴 담당자도 한 줄",
+            chips = listOf("너무너무", "긴 태그", "최대로", "5자까지", "5개제한"), // 도메인 규칙에 맞게 최대 5자로 수정
+            user = "너무너무너무 긴 담당자도 한 줄",
         ),
     )
 }
 
 @Composable
 @Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
-private fun CardPreview(@PreviewParameter(CardPreviewProvider::class) data: CardPreviewData) {
+private fun CardPreview(@PreviewParameter(CardPreviewProvider::class) task: Task) {
     Card(
-        title = data.title,
-        cardDescription = data.cardDescription,
-        chips = data.chips,
-        user = data.user,
+        task = task, // 개별 파라미터 대신 Task 객체 하나만 전달한다.
         modifier = Modifier.padding(16.dp),
     )
 }

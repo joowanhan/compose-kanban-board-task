@@ -40,7 +40,7 @@ UI 테스트 추가
     - [x] PreviewParameter 활용
         - 다양한 상황(제목만, 칩만, 긴 텍스트 등)을 한 번에 확인할 수 있게 함
         - showBackground를 통해 IDE 시인성 개선
-        - CardPreviewData, CardPreviewProvider: 모듈 외부로 불필요하게 노출되는 것을 막기 위해 internal 사용
+        - CardPreviewProvider: 모듈 외부로 불필요하게 노출되는 것을 막기 위해 internal 사용
 - [ ] 비즈니스 로직과 UI 로직을 분리
     - [x] 비즈니스: 데이터의 규칙과 검증
         - Task
@@ -49,17 +49,18 @@ UI 테스트 추가
     - [ ] UI: 주어진 데이터를 화면에 그리는 역할만 수행
         - Card
             - 원시 타입(String, List) 대신 Task 객체를 받도록 수정
-- [ ] 테스트 코드 추가
+            - 프리뷰만을 위해 존재하던 불필요한 DTO(CardPreviewData) 삭제
+- [x] 테스트 코드 추가
     - [x] 단위 테스트
         - Task
             - [x] 제목이 비어 있거나 공백만 있는 경우
             - [x] 태그가 5개를 초과하는 경우
             - [x] 태그의 글자수가 5자를 초과하는 경우
             - [x] 담당자가 null이거나 입력되지 않는 경우
-    - [ ] UI 테스트
+    - [x] UI 테스트
         - Card
-            - [ ] 모든 필드가 있는 카드
-            - [ ] 본문이 없는 카드
+            - [x] 모든 필드가 있는 카드
+            - [x] 본문이 없는 카드
 
 ## 프로그래밍 요구 사항
 
