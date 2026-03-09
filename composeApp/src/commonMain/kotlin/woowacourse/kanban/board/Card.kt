@@ -34,7 +34,7 @@ import androidx.compose.ui.unit.sp
 fun Card(
     modifier: Modifier = Modifier,
     title: String = "제목없음",
-    content: String = "",
+    cardDescription: String = "",
     chips: List<String> = emptyList(),
     user: String = "알수없음",
 ) {
@@ -48,7 +48,7 @@ fun Card(
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
         Title(title)
-        if (content.isNotBlank()) Content(content)
+        if (cardDescription.isNotBlank()) CardDescription(cardDescription)
         if (chips.isNotEmpty()) {
             FlowRow(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -77,10 +77,10 @@ private fun Title(title: String, modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun Content(content: String, modifier: Modifier = Modifier) {
+private fun CardDescription(description: String, modifier: Modifier = Modifier) {
     Text(
         modifier = modifier,
-        text = content,
+        text = description,
         fontSize = 14.sp,
         fontWeight = FontWeight.W400,
         color = Color(0xff4a5565),
@@ -145,7 +145,7 @@ fun CardPreview() {
     ) {
         Card(
             title = "LazyColumn 컴포넌트 구현",
-            content = "세로 스크롤 가능한 리스트 컴포넌트를 만들고 성능 최적화를 적용합니다.",
+            cardDescription = "세로 스크롤 가능한 리스트 컴포넌트를 만들고 성능 최적화를 적용합니다.",
             chips = listOf("컴포넌트", "성능"),
             user = "다이노",
         )
@@ -156,7 +156,7 @@ fun CardPreview() {
         )
         Card(
             title = "LazyColumn 컴포넌트 구현",
-            content = "세로 스크롤 가능한 리스트 컴포넌트를 만들고 성능 최적화를 적용합니다.",
+            cardDescription = "세로 스크롤 가능한 리스트 컴포넌트를 만들고 성능 최적화를 적용합니다.",
             user = "다이노",
         )
         Card(
@@ -166,7 +166,7 @@ fun CardPreview() {
 
         Card(
             title = "LazyColumn 컴포넌트 구현",
-            content = "너무너무너무 긴 설명은 두 줄까지만 노출하고 말줄임표로 처리합니다 두 줄까지만 노출하고 말줄임표로 처리합니다",
+            cardDescription = "너무너무너무 긴 설명은 두 줄까지만 노출하고 말줄임표로 처리합니다 두 줄까지만 노출하고 말줄임표로 처리합니다",
             chips = listOf("너무너무", "긴 태그", "최대로", "5자까지", "5개제한임"),
             user = "너무너무너무 긴 담당자도 한 줄 너무너무너무 긴 담당자도 한 줄",
         )

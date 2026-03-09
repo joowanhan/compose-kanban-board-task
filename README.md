@@ -31,8 +31,10 @@ UI 테스트 추가
     - [ ] 가시성 제한
         - [x] 캡슐화를 위해 내부 컴포저블 private
         - [ ] Preview 함수는 실제 프로덕션 코드에서 호출되지 않으므로 private
-    - [ ] 명명 규칙
+    - [x] 명명 규칙
         - 다른 개발자가 이 함수명만 보고 "칸반 카드의 본문 텍스트"라는 것을 바로 알수 있게 함
+        - content -> cardDescription
+        - Content -> CardDescription
     - [ ] PreviewParameter 활용
         - 다양한 상황(제목만, 칩만, 긴 텍스트 등)을 한 번에 확인할 수 있게 함
         - IDE에서 Preview가 잘 안보일 것
