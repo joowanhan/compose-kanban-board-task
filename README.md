@@ -42,10 +42,18 @@ UI 테스트 추가
         - showBackground를 통해 IDE 시인성 개선
         - CardPreviewData, CardPreviewProvider: 모듈 외부로 불필요하게 노출되는 것을 막기 위해 internal 사용
 - [ ] 비즈니스 로직과 UI 로직을 분리
-    - [ ]
+    - [ ] 비즈니스: 데이터의 규칙과 검증
+        - Task
+            - UI 기술(Compose)에 전혀 의존하지 않는 순수한 코틀린 데이터 클래스
+            - 칸반 보드 태스크의 핵심 규칙을 검증하고 데이터를 캡슐화
+    - [ ] UI: 주어진 데이터를 화면에 그리는 역할만 수행
+        - Card
+            - 원시 타입(String, List) 대신 Task 객체를 받도록 수정
 - [ ] 테스트 코드 추가
     - [ ] 단위 테스트
+        - Task
     - [ ] UI 테스트
+        - Card
 
 ## 프로그래밍 요구 사항
 
