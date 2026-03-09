@@ -64,7 +64,7 @@ fun Card(
 }
 
 @Composable
-fun Title(title: String) {
+private fun Title(title: String) {
     Text(
         text = title,
         fontSize = 16.sp,
@@ -76,7 +76,7 @@ fun Title(title: String) {
 }
 
 @Composable
-fun Content(content: String) {
+private fun Content(content: String) {
     Text(
         text = content,
         fontSize = 14.sp,
@@ -88,7 +88,7 @@ fun Content(content: String) {
 }
 
 @Composable
-fun Chip(content: String) {
+private fun Chip(content: String) {
     Text(
         text = content.take(5),
         fontSize = 12.sp,
@@ -101,7 +101,7 @@ fun Chip(content: String) {
 }
 
 @Composable
-fun User(name: String) {
+private fun User(name: String) {
     Box {
         Box(
             modifier = Modifier.background(Color(0xfff3f4f6)).fillMaxWidth().height(1.dp).align(Alignment.TopCenter),
