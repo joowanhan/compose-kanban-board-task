@@ -31,9 +31,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun Card(title: String = "제목없음", content: String = "", chips: List<String> = emptyList(), user: String = "알수없음") {
+fun Card(
+    modifier: Modifier = Modifier,
+    title: String = "제목없음",
+    content: String = "",
+    chips: List<String> = emptyList(),
+    user: String = "알수없음",
+) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .width(286.dp)
             .clip(shape = RoundedCornerShape(10.dp))
             .background(Color.White)
