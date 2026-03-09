@@ -56,9 +56,8 @@ fun App() {
         verticalArrangement = Arrangement.spacedBy(5.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-//        MessageList(messages = listOf("Hello", "World", "Jetpack", "Compose"))
         CircularIconExample()
-//        CheckerScreen()
+        CheckerScreen()
         TextExample()
         ImageExample()
         IconExample()
