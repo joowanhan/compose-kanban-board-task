@@ -1,4 +1,4 @@
-package woowacourse.kanban.board
+package woowacourse.kanban.board.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -33,13 +33,17 @@ import androidx.compose.ui.unit.sp
 import woowacourse.kanban.board.domain.Task
 
 @Composable
-fun Card(task: Task, modifier: Modifier = Modifier) {
+fun Card(task: Task, modifier: Modifier = Modifier.Companion) {
     Column(
         modifier = modifier
             .width(286.dp)
             .clip(shape = RoundedCornerShape(10.dp))
-            .background(Color.White)
-            .border(width = 1.dp, shape = RoundedCornerShape(10.dp), color = Color(0xffe5e7eb))
+            .background(Color.Companion.White)
+            .border(
+                width = 1.dp,
+                shape = androidx.compose.foundation.shape.RoundedCornerShape(10.dp),
+                color = Color(0xffe5e7eb)
+            )
             .padding(start = 17.dp, top = 17.dp, end = 17.dp, bottom = 1.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
@@ -60,76 +64,78 @@ fun Card(task: Task, modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun Title(title: String, modifier: Modifier = Modifier) {
+private fun Title(title: String, modifier: Modifier = Modifier.Companion) {
     Text(
         modifier = modifier,
         text = title,
         fontSize = 16.sp,
-        fontWeight = FontWeight.W500,
+        fontWeight = FontWeight.Companion.W500,
         color = Color(0xff101828),
         maxLines = 1,
-        overflow = TextOverflow.Ellipsis,
+        overflow = TextOverflow.Companion.Ellipsis,
     )
 }
 
 @Composable
-private fun CardDescription(description: String, modifier: Modifier = Modifier) {
+private fun CardDescription(description: String, modifier: Modifier = Modifier.Companion) {
     Text(
         modifier = modifier,
         text = description,
         fontSize = 14.sp,
-        fontWeight = FontWeight.W400,
+        fontWeight = FontWeight.Companion.W400,
         color = Color(0xff4a5565),
         maxLines = 2,
-        overflow = TextOverflow.Ellipsis,
+        overflow = TextOverflow.Companion.Ellipsis,
     )
 }
 
 @Composable
-private fun Chip(content: String, modifier: Modifier = Modifier) {
+private fun Chip(content: String, modifier: Modifier = Modifier.Companion) {
     Text(
         text = content.take(5),
         fontSize = 12.sp,
-        fontWeight = FontWeight.W400,
+        fontWeight = FontWeight.Companion.W400,
         color = Color(0xff364153),
-        modifier = modifier.clip(shape = RoundedCornerShape(100.dp)).background(Color(0xffF3F4F6))
+        modifier = modifier.clip(shape = androidx.compose.foundation.shape.RoundedCornerShape(100.dp))
+            .background(Color(0xffF3F4F6))
             .padding(horizontal = 8.dp, vertical = 4.dp),
 
-    )
+        )
 }
 
 @Composable
-private fun User(name: String, modifier: Modifier = Modifier) {
+private fun User(name: String, modifier: Modifier = Modifier.Companion) {
     Box(modifier = modifier) {
         HorizontalDivider(
-            modifier = Modifier.align(Alignment.TopCenter),
+            modifier = Modifier.Companion.align(Alignment.Companion.TopCenter),
             thickness = 1.dp,
             color = Color(0xfff3f4f6),
         )
 
         Row(
-            modifier = Modifier.padding(vertical = 10.dp),
+            modifier = Modifier.Companion.padding(vertical = 10.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
-            verticalAlignment = Alignment.CenterVertically,
+            verticalAlignment = Alignment.Companion.CenterVertically,
         ) {
             Box(
-                modifier = Modifier.size(24.dp).clip(CircleShape).background(color = Color.White)
+                modifier = Modifier.Companion.size(24.dp).clip(CircleShape)
+                    .background(color = Color.Companion.White)
                     .border(width = 2.dp, color = Color(0xff838383), shape = CircleShape),
             ) {
                 Icon(
                     imageVector = Icons.Default.AccountBox,
                     contentDescription = "profile image",
                     tint = Color(0xff838383),
-                    modifier = Modifier.clip(CircleShape).requiredSize(size = 33.dp),
+                    modifier = Modifier.Companion.clip(CircleShape).requiredSize(size = 33.dp),
                 )
             }
             Text(
                 text = name,
-                fontWeight = FontWeight.W500,
+                fontWeight = FontWeight.Companion.W500,
                 fontSize = 14.sp,
                 color = Color(0xff364153),
                 maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
+                overflow = TextOverflow.Companion.Ellipsis,
             )
         }
     }
@@ -166,6 +172,6 @@ internal class CardPreviewProvider : PreviewParameterProvider<Task> {
 private fun CardPreview(@PreviewParameter(CardPreviewProvider::class) task: Task) {
     Card(
         task = task, // 개별 파라미터 대신 Task 객체 하나만 전달한다.
-        modifier = Modifier.padding(16.dp),
+        modifier = Modifier.Companion.padding(16.dp),
     )
 }

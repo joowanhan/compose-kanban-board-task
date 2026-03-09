@@ -1,4 +1,4 @@
-package woowacourse.kanban.board
+package woowacourse.kanban.board.ui
 
 import androidx.compose.ui.test.ExperimentalTestApi
 import androidx.compose.ui.test.onNodeWithText
