@@ -38,8 +38,7 @@ fun Card(title: String = "제목없음", content: String = "", chips: List<Strin
             .clip(shape = RoundedCornerShape(10.dp))
             .background(Color.White)
             .border(width = 1.dp, shape = RoundedCornerShape(10.dp), color = Color(0xffe5e7eb))
-            .padding(17.dp, 17.dp, 17.dp, 1.dp)
-            .width(286.dp),
+            .padding(start = 17.dp, top = 17.dp, end = 17.dp, bottom = 1.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
         Title(title)
