@@ -64,8 +64,9 @@ fun Card(
 }
 
 @Composable
-private fun Title(title: String) {
+private fun Title(title: String, modifier: Modifier = Modifier) {
     Text(
+        modifier = modifier,
         text = title,
         fontSize = 16.sp,
         fontWeight = FontWeight.W500,
@@ -76,8 +77,9 @@ private fun Title(title: String) {
 }
 
 @Composable
-private fun Content(content: String) {
+private fun Content(content: String, modifier: Modifier = Modifier) {
     Text(
+        modifier = modifier,
         text = content,
         fontSize = 14.sp,
         fontWeight = FontWeight.W400,
@@ -88,21 +90,21 @@ private fun Content(content: String) {
 }
 
 @Composable
-private fun Chip(content: String) {
+private fun Chip(content: String, modifier: Modifier = Modifier) {
     Text(
         text = content.take(5),
         fontSize = 12.sp,
         fontWeight = FontWeight.W400,
         color = Color(0xff364153),
-        modifier = Modifier.clip(shape = RoundedCornerShape(100.dp)).background(Color(0xffF3F4F6))
+        modifier = modifier.clip(shape = RoundedCornerShape(100.dp)).background(Color(0xffF3F4F6))
             .padding(horizontal = 8.dp, vertical = 4.dp),
 
     )
 }
 
 @Composable
-private fun User(name: String) {
-    Box {
+private fun User(name: String, modifier: Modifier = Modifier) {
+    Box(modifier = modifier) {
         Box(
             modifier = Modifier.background(Color(0xfff3f4f6)).fillMaxWidth().height(1.dp).align(Alignment.TopCenter),
         )
